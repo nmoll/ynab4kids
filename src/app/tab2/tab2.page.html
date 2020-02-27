@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center">
+      Rowan's Budget
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button expand="block" color="success" size="large"
+    >$1.00 to budget!</ion-button
+  >
+
+  <div style="display: flex;">
+    <div
+      style="flex: 1;
+      display: flex;
+      justify-content: center;"
+    >
+      <ion-card style="padding: 1rem;">
+        <app-category-button
+          [amount]="5"
+          [name]="'Giving'"
+        ></app-category-button>
+      </ion-card>
+    </div>
+    <div
+      style="flex: 1;
+      display: flex;
+      justify-content: center;"
+    >
+      <ion-card style="padding: 1rem;">
+        <app-category-button
+          [amount]="12.21"
+          [name]="'Saving'"
+        ></app-category-button>
+      </ion-card>
+    </div>
+  </div>
+
+  <div style="display: flex;">
+    <div
+      style="flex: 1;
+        display: flex;
+        justify-content: center;"
+    >
+      <ion-card style="padding: 1rem;">
+        <app-category-button [amount]="0" [name]="'Fun'"></app-category-button>
+      </ion-card>
+    </div>
+    <div
+      style="flex: 1;
+        display: flex;
+        justify-content: center;"
+    >
+      <ion-card style="padding: 1rem;">
+        <app-category-button
+          [amount]="3.01"
+          [name]="'Other'"
+        ></app-category-button>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

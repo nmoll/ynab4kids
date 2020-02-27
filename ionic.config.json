@@ -1,0 +1,7 @@
+{
+  "name": "ynab4kids",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

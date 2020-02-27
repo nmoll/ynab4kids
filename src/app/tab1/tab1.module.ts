@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CategoryButtonComponentModule } from '../category/category-button.module';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { Tab1Page } from './tab1.page';
 
 @NgModule({
@@ -12,7 +11,6 @@ import { Tab1Page } from './tab1.page';
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
     CategoryButtonComponentModule,
     RouterModule.forChild([{ path: '', component: Tab1Page }])
   ],

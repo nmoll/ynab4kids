@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-category-button',
@@ -10,4 +10,7 @@ export class CategoryButtonComponent {
 
   @Input()
   public name: string;
+
+  @Output()
+  public select = new EventEmitter<void>();
 }

@@ -7,9 +7,34 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <app-money-button [amount]="25"></app-money-button>
+  <app-money-button [amount]="25"></app-money-button>
+
+  <app-money-button [amount]="10"></app-money-button>
+  <app-money-button [amount]="5"></app-money-button>
+  <app-money-button [amount]="1"></app-money-button>
+
+  <div style="display: flex; margin-top: 2rem; justify-content: space-evenly">
+    <ion-card [button]="true" style="padding: 2rem;">
+      <app-category-button [amount]="5" [name]="'Giving'"></app-category-button>
+    </ion-card>
+    <ion-card [button]="true" style="padding: 2rem;">
+      <app-category-button
+        [amount]="12.21"
+        [name]="'Saving'"
+      ></app-category-button>
+    </ion-card>
+  </div>
+
+  <div style="display: flex; margin-top: 2rem; justify-content: space-evenly">
+    <ion-card [button]="true" style="padding: 2rem;">
+      <app-category-button [amount]="0" [name]="'Fun'"></app-category-button>
+    </ion-card>
+    <ion-card [button]="true" style="padding: 2rem;">
+      <app-category-button
+        [amount]="3.01"
+        [name]="'Other'"
+      ></app-category-button>
+    </ion-card>
+  </div>
 </ion-content>

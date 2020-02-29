@@ -17,7 +17,6 @@ export class MoneyButtonComponent {
   constructor(private animationController: AnimationController) {}
 
   public onClick(): void {
-    console.log('click');
     this.animationController
       .create()
       .addElement(this.elementRef.nativeElement)
@@ -29,16 +28,35 @@ export class MoneyButtonComponent {
       )
       .play();
     this.selected = !this.selected;
-    // this.animationController
-    //   .create()
-    //   .addElement(this.elementRef.nativeElement)
-    //   .duration(1000)
-    //   .fromTo('transform', 'translate(0px, 0px)', 'translate(100px, 200px)')
-    //   .fromTo('opacity', '1', '0.2')
+  }
 
-    //   .afterStyles({
-    //     display: 'none'
-    //   })
-    //   .play();
+  public animateTo(element: HTMLElement): Promise<void> {
+    let resolver;
+    const promise = new Promise<void>(r => (resolver = r));
+
+    const distanceX =
+      element.getBoundingClientRect().left -
+      this.elementRef.nativeElement.getBoundingClientRect().left;
+    const distanceY =
+      element.getBoundingClientRect().top -
+      this.elementRef.nativeElement.getBoundingClientRect().top;
+
+    this.animationController
+      .create()
+      .addElement(this.elementRef.nativeElement)
+      .duration(500)
+      .fromTo(
+        'transform',
+        'translate(0px, 0px) scale(1)',
+        `translate(${distanceX}px, ${distanceY}px) scale(0.4)`
+      )
+      .fromTo('opacity', '1', '0.2')
+      .afterStyles({
+        display: 'none'
+      })
+      .onFinish(() => resolver())
+      .play();
+
+    return promise;
   }
 }

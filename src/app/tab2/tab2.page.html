@@ -14,8 +14,7 @@
   <div style="display: flex; margin-top: 2rem; justify-content: space-evenly">
     <app-category-button
       *ngFor="let category of categoryFacade.categories$ | async"
-      [amount]="category.balance"
-      [name]="category.name"
+      [category]="category"
     ></app-category-button>
   </div>
 </ion-content>

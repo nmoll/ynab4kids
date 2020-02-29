@@ -7,19 +7,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <app-money-button [amount]="25"></app-money-button>
-  <app-money-button [amount]="25"></app-money-button>
+  <ng-container appMoneyDropManager>
+    <app-money-button [amount]="0.25"></app-money-button>
+    <app-money-button [amount]="0.25"></app-money-button>
 
-  <app-money-button [amount]="10"></app-money-button>
-  <app-money-button [amount]="5"></app-money-button>
-  <app-money-button [amount]="1"></app-money-button>
+    <app-money-button [amount]="0.1"></app-money-button>
+    <app-money-button [amount]="0.05"></app-money-button>
+    <app-money-button [amount]="0.01"></app-money-button>
 
-  <div style="display: flex; margin-top: 2rem; justify-content: space-evenly">
-    <app-category-button
-      *ngFor="let category of categoryFacade.categories$ | async"
-      [amount]="category.balance"
-      [name]="category.name"
-      (select)="onSelectCategory(category)"
-    ></app-category-button>
-  </div>
+    <div style="display: flex; margin-top: 2rem; justify-content: space-evenly">
+      <app-category-button
+        *ngFor="let category of categoryFacade.categories$ | async"
+        [category]="category"
+        (select)="onSelectCategory(category)"
+      ></app-category-button>
+    </div>
+  </ng-container>
 </ion-content>

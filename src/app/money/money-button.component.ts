@@ -54,7 +54,10 @@ export class MoneyButtonComponent {
       .afterStyles({
         display: 'none'
       })
-      .onFinish(() => resolver())
+      .onFinish(() => {
+        resolver();
+        this.selected = false;
+      })
       .play();
 
     return promise;

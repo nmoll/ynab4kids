@@ -4,18 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CategoryButtonComponentModule } from '../category/category-button.module';
-import { MoneyButtonComponentModule } from '../money/money-button.module';
-import { Tab3Page } from './tab3.page';
+import { BudgetListPage } from './budget-list.page';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    MoneyButtonComponentModule,
     CategoryButtonComponentModule,
-    RouterModule.forChild([{ path: '', component: Tab3Page }])
+    RouterModule.forChild([
+      {
+        path: '',
+        component: BudgetListPage
+      }
+    ])
   ],
-  declarations: [Tab3Page]
+  declarations: [BudgetListPage]
 })
-export class Tab3PageModule {}
+export class BudgetListPageModule {}

@@ -5,11 +5,10 @@ import { MoneyButtonComponent } from '../money/money-button.component';
 import { CategoryFacade } from '../store/category/category.facade';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  selector: 'app-budget-categorize',
+  templateUrl: 'budget-categorize.page.html'
 })
-export class Tab3Page implements OnInit {
+export class BudgetCategorizePage implements OnInit {
   @ViewChildren(MoneyButtonComponent)
   public moneyButtonRefs: QueryList<MoneyButtonComponent>;
 

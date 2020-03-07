@@ -13,17 +13,9 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          }
-        ]
-      },
-      {
-        path: 'budgets/:id/categorize',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../budget-list/budget-list.module').then(
+                m => m.BudgetListPageModule
+              )
           }
         ]
       },
@@ -33,7 +25,31 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../budget-detail/budget-detail.module').then(
+                m => m.BudgetDetailPageModule
+              )
+          }
+        ]
+      },
+      {
+        path: 'budgets/:id/categorize',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../budget-categorize/budget-categorize.module').then(
+                m => m.BudgetCategorizePageModule
+              )
+          }
+        ]
+      },
+      {
+        path: 'settings',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../settings/settings.module').then(m => m.SettingsModule)
           }
         ]
       },

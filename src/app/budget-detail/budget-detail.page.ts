@@ -3,11 +3,10 @@ import { BudgetMonthFacade } from '../store/budget-month/budget-month.facade';
 import { CategoryFacade } from '../store/category/category.facade';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-budget-detail',
+  templateUrl: 'budget-detail.page.html'
 })
-export class Tab2Page implements OnInit {
+export class BudgetDetailPage implements OnInit {
   constructor(
     public categoryFacade: CategoryFacade,
     public budgetMonthFacade: BudgetMonthFacade

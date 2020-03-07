@@ -9,8 +9,8 @@ import { BudgetActions } from './budget.actions';
 export class BudgetEffects {
   constructor(private actions$: Actions) {}
 
-  public loadBudgets = createEffect(() => {
-    return this.actions$.pipe(
+  public loadBudgets = createEffect(() =>
+    this.actions$.pipe(
       ofType(BudgetActions.loadBudgets),
       map(() =>
         BudgetActions.loadBudgetsSuccess({
@@ -30,6 +30,6 @@ export class BudgetEffects {
           ]
         })
       )
-    );
-  });
+    )
+  );
 }

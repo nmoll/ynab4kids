@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BudgetMonthFacade } from '../store/budget-month/budget-month.facade';
 import { CategoryFacade } from '../store/category/category.facade';
 
 @Component({
@@ -7,9 +8,13 @@ import { CategoryFacade } from '../store/category/category.facade';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page implements OnInit {
-  constructor(public categoryFacade: CategoryFacade) {}
+  constructor(
+    public categoryFacade: CategoryFacade,
+    public budgetMonthFacade: BudgetMonthFacade
+  ) {}
 
   public ngOnInit(): void {
     this.categoryFacade.loadCategories();
+    this.budgetMonthFacade.load();
   }
 }

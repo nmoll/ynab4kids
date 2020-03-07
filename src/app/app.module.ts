@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { appReducers } from './store/app.reducers';
+import { BudgetMonthEffects } from './store/budget-month/budget-month.effects';
 import { BudgetEffects } from './store/budget/budget.effects';
 import { CategoryEffects } from './store/category/category.effects';
 
@@ -25,7 +26,7 @@ import { CategoryEffects } from './store/category/category.effects';
         strictActionImmutability: true
       }
     }),
-    EffectsModule.forRoot([CategoryEffects, BudgetEffects])
+    EffectsModule.forRoot([CategoryEffects, BudgetEffects, BudgetMonthEffects])
   ],
   providers: [
     StatusBar,

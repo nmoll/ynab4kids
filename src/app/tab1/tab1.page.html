@@ -8,9 +8,10 @@
 
 <ion-content [fullscreen]="true">
   <ion-card
-    [button]="true"
-    style="padding: 1rem;"
     *ngFor="let budget of budgetFacade.budgets$ | async"
+    [button]="true"
+    [routerLink]="[budget.id]"
+    style="padding: 1rem;"
   >
     <ion-card-title>
       {{ budget.name }}

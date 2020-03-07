@@ -8,7 +8,7 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'budgets',
         children: [
           {
             path: '',
@@ -18,17 +18,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab3',
+        path: 'budgets/:id/categorize',
         children: [
           {
             path: '',
@@ -38,15 +28,25 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'budgets/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+          }
+        ]
+      },
+      {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/budets',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/budgets',
     pathMatch: 'full'
   }
 ];

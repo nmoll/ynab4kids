@@ -12,6 +12,7 @@
     expand="block"
     color="success"
     size="large"
+    [routerLink]="['categorize']"
     >{{ budgetMonth.toBeBudgeted | currency }} to budget!</ion-button
   >
 
@@ -22,3 +23,14 @@
     ></app-category-button>
   </div>
 </ion-content>
+
+<ion-fab
+  vertical="bottom"
+  horizontal="start"
+  slot="fixed"
+  [routerLink]="['../../']"
+>
+  <ion-fab-button>
+    <ion-icon name="arrow-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

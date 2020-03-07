@@ -7,19 +7,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Rowan's Budget</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-card [button]="true" style="padding: 1rem;">
+  <ion-card
+    [button]="true"
+    style="padding: 1rem;"
+    *ngFor="let budget of budgetFacade.budgets$ | async"
+  >
     <ion-card-title>
-      Rowan's Budget
+      {{ budget.name }}
     </ion-card-title>
-  </ion-card>
-
-  <ion-card [button]="true" style="padding: 1rem;">
-    <ion-card-title>Rosalie's Budget</ion-card-title>
   </ion-card>
 </ion-content>

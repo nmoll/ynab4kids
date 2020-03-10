@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BudgetMonthFacade } from '../store/budget-month/budget-month.facade';
+import { BudgetFacade } from '../store/budget/budget.facade';
 import { CategoryFacade } from '../store/category/category.facade';
 
 @Component({
@@ -8,6 +9,7 @@ import { CategoryFacade } from '../store/category/category.facade';
 })
 export class BudgetDetailPage implements OnInit {
   constructor(
+    public budgetFacade: BudgetFacade,
     public categoryFacade: CategoryFacade,
     public budgetMonthFacade: BudgetMonthFacade
   ) {}

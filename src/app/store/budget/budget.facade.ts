@@ -11,9 +11,13 @@ import { BudgetSelectors } from './budget.selectors';
 })
 export class BudgetFacade {
   public budgets$: Observable<IBudget[]>;
+  public selectedBudget$: Observable<IBudget>;
 
   constructor(private store: Store<IBudgetEntityState>) {
-    this.budgets$ = this.store.pipe(select(BudgetSelectors.getAllBugets));
+    this.budgets$ = this.store.pipe(select(BudgetSelectors.selectBudgets));
+    this.selectedBudget$ = this.store.pipe(
+      select(BudgetSelectors.selectSelectedBudget)
+    );
   }
 
   public loadBudgets() {

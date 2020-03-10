@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'budgets/:id',
+        path: 'budgets/:budgetId',
         children: [
           {
             path: '',
@@ -32,7 +33,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'budgets/:id/categorize',
+        path: 'budgets/:budetId/categorize',
         children: [
           {
             path: '',
@@ -68,7 +69,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes),
+    StoreRouterConnectingModule.forRoot()
+  ],
   exports: [RouterModule]
 })
 export class TabsPageRoutingModule {}

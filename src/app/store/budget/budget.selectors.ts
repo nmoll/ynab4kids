@@ -17,7 +17,10 @@ const selectSelectedBudget = createSelector(
   (entities, budgetId) => entities[budgetId]
 );
 
+const selectLoaded = createSelector(selectBudgetState, state => state.loaded);
+
 export const BudgetSelectors = {
   selectBudgets: selectAll,
-  selectSelectedBudget
+  selectSelectedBudget,
+  selectLoaded
 };

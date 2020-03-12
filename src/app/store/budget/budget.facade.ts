@@ -12,17 +12,17 @@ import { BudgetSelectors } from './budget.selectors';
 export class BudgetFacade {
   public budgets$: Observable<IBudget[]>;
   public selectedBudget$: Observable<IBudget>;
-  public isLoaded$: Observable<boolean>;
+  public loaded$: Observable<boolean>;
 
   constructor(private store: Store<IBudgetEntityState>) {
     this.budgets$ = this.store.pipe(select(BudgetSelectors.selectBudgets));
     this.selectedBudget$ = this.store.pipe(
       select(BudgetSelectors.selectSelectedBudget)
     );
-    this.isLoaded$ = this.store.pipe(select(BudgetSelectors.selectLoaded));
+    this.loaded$ = this.store.pipe(select(BudgetSelectors.selectLoaded));
   }
 
-  public loadBudgets() {
-    this.store.dispatch(BudgetActions.loadBudgets());
+  public load() {
+    this.store.dispatch(BudgetActions.load());
   }
 }

@@ -9,11 +9,11 @@ import { BudgetActions } from './budget.actions';
 export class BudgetEffects {
   constructor(private actions$: Actions) {}
 
-  public loadBudgets = createEffect(() =>
+  public load$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(BudgetActions.loadBudgets),
+      ofType(BudgetActions.load),
       map(() =>
-        BudgetActions.loadBudgetsSuccess({
+        BudgetActions.loadSuccess({
           budgets: [
             {
               id: '1',

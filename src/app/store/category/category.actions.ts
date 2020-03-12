@@ -2,10 +2,10 @@ import { createAction, props } from '@ngrx/store';
 import { ICategory } from 'src/app/category/category';
 
 export const CategoryActions = {
-  loadCategories: createAction('[Category] Load Categories'),
+  load: createAction('[Category] Load'),
 
-  loadCategoriesSuccess: createAction(
-    '[Category] Load Categories Success',
+  loadSuccess: createAction(
+    '[Category] Load Success',
     props<{ categories: ICategory[] }>()
   ),
 

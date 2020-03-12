@@ -9,7 +9,7 @@ import { BudgetMonthActions } from './budget-month.actions';
 export class BudgetMonthEffects {
   constructor(private actions$: Actions) {}
 
-  public load = createEffect(() =>
+  public load$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BudgetMonthActions.load),
       map(() =>

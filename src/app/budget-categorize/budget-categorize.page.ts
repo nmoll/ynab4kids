@@ -1,4 +1,9 @@
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  QueryList,
+  ViewChildren
+} from '@angular/core';
 import { ICategory } from '../category/category';
 import { CategoryButtonComponent } from '../category/category-button.component';
 import { MoneyButtonComponent } from '../money/money-button.component';
@@ -6,9 +11,10 @@ import { CategoryFacade } from '../store/category/category.facade';
 
 @Component({
   selector: 'app-budget-categorize',
-  templateUrl: 'budget-categorize.page.html'
+  templateUrl: 'budget-categorize.page.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BudgetCategorizePage implements OnInit {
+export class BudgetCategorizePage {
   @ViewChildren(MoneyButtonComponent)
   public moneyButtonRefs: QueryList<MoneyButtonComponent>;
 
@@ -16,10 +22,6 @@ export class BudgetCategorizePage implements OnInit {
   public categoryButtonRefs: QueryList<CategoryButtonComponent>;
 
   constructor(public categoryFacade: CategoryFacade) {}
-
-  public ngOnInit(): void {
-    this.categoryFacade.loadCategories();
-  }
 
   public onSelectCategory(category: ICategory): void {
     const selectedMoney = this.moneyButtonRefs.filter(

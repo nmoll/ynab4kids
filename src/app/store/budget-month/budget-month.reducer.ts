@@ -5,5 +5,8 @@ import { initialBudgetMonthState } from './budget-month.state';
 export const budgetMonthReducer = createReducer(
   initialBudgetMonthState,
 
-  on(BudgetMonthActions.loadSuccess, (_, { budgetMonth }) => budgetMonth)
+  on(BudgetMonthActions.loadSuccess, (_, { budgetMonth }) => ({
+    currentBudgetMonth: budgetMonth,
+    loaded: true
+  }))
 );

@@ -1,9 +1,16 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  ViewChild
+} from '@angular/core';
 import { AnimationController } from '@ionic/angular';
 
 @Component({
   selector: 'app-money-button',
-  templateUrl: 'money-button.component.html'
+  templateUrl: 'money-button.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MoneyButtonComponent {
   @ViewChild('money', { static: false })

@@ -11,15 +11,17 @@ import { CategorySelectors } from './category.selectors';
 })
 export class CategoryFacade {
   public categories$: Observable<ICategory[]>;
+  public loaded$: Observable<boolean>;
 
   constructor(private store: Store<ICategoryEntityState>) {
     this.categories$ = this.store.pipe(
       select(CategorySelectors.getAllCategories)
     );
+    this.loaded$ = this.store.pipe(select(CategorySelectors.selectLoaded));
   }
 
-  public loadCategories() {
-    this.store.dispatch(CategoryActions.loadCategories());
+  public load() {
+    this.store.dispatch(CategoryActions.load());
   }
 
   public updateCategoryBudget(category: ICategory, amount: number) {

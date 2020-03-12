@@ -1,10 +1,21 @@
-import { createFeatureSelector } from '@ngrx/store';
-import { IBudgetMonth } from 'src/app/budget-month/budget-month';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { IBudgetMonthState } from './budget-month.state';
 
-export const getBudgetMonth = createFeatureSelector<IBudgetMonth>(
+export const selectBudgetMonthState = createFeatureSelector<IBudgetMonthState>(
   'budgetMonthState'
 );
 
+export const selectCurrentBudgetMonth = createSelector(
+  selectBudgetMonthState,
+  state => state.currentBudgetMonth
+);
+
+export const selectLoaded = createSelector(
+  selectBudgetMonthState,
+  state => state.loaded
+);
+
 export const BudgetMonthSelectors = {
-  getBudgetMonth
+  selectCurrentBudgetMonth,
+  selectLoaded
 };

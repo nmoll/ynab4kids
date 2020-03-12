@@ -1,15 +1,18 @@
-import { createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { categoryAdapter, ICategoryEntityState } from './category.entity.state';
 
-const getCategoryState = createFeatureSelector<ICategoryEntityState>(
+const selectCategoryState = createFeatureSelector<ICategoryEntityState>(
   'categoryState'
 );
 
 const { selectAll, selectEntities } = categoryAdapter.getSelectors(
-  getCategoryState
+  selectCategoryState
 );
+
+const selectLoaded = createSelector(selectCategoryState, state => state.loaded);
 
 export const CategorySelectors = {
   getAllCategories: selectAll,
-  getCategoryEntities: selectEntities
+  getCategoryEntities: selectEntities,
+  selectLoaded
 };

@@ -10,11 +10,13 @@ import { BudgetMonthSelectors } from './budget-month.selectors';
 })
 export class BudgetMonthFacade {
   public currentBudgetMonth$: Observable<IBudgetMonth>;
+  public loaded$: Observable<boolean>;
 
   constructor(private store: Store<IBudgetMonth>) {
     this.currentBudgetMonth$ = this.store.pipe(
-      select(BudgetMonthSelectors.getBudgetMonth)
+      select(BudgetMonthSelectors.selectCurrentBudgetMonth)
     );
+    this.loaded$ = this.store.pipe(select(BudgetMonthSelectors.selectLoaded));
   }
 
   public load(): void {

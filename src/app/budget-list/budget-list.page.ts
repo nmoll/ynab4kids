@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BudgetFacade } from '../store/budget/budget.facade';
 
 @Component({
   selector: 'app-budget-list',
-  templateUrl: 'budget-list.page.html'
+  templateUrl: 'budget-list.page.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BudgetListPage implements OnInit {
+export class BudgetListPage {
   constructor(public budgetFacade: BudgetFacade) {}
-
-  public ngOnInit(): void {
-    this.budgetFacade.loadBudgets();
-  }
 }

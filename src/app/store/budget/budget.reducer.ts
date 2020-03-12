@@ -5,7 +5,7 @@ import { budgetAdapter, initialBudgetState } from './budget.entity.state';
 export const budgetReducer = createReducer(
   initialBudgetState,
 
-  on(BudgetActions.loadBudgetsSuccess, (state, { budgets }) => ({
+  on(BudgetActions.loadSuccess, (state, { budgets }) => ({
     ...budgetAdapter.addAll(budgets, state),
     loaded: true
   }))

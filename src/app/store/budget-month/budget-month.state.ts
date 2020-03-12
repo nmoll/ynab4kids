@@ -1,5 +1,13 @@
 import { IBudgetMonth } from 'src/app/budget-month/budget-month';
 
-export const initialBudgetMonthState: IBudgetMonth = {
-  toBeBudgeted: 0
+export interface IBudgetMonthState {
+  currentBudgetMonth: IBudgetMonth;
+  loaded: boolean;
+}
+
+export const initialBudgetMonthState: IBudgetMonthState = {
+  currentBudgetMonth: {
+    toBeBudgeted: 0
+  },
+  loaded: false
 };

@@ -2,10 +2,10 @@ import { createAction, props } from '@ngrx/store';
 import { IBudget } from 'src/app/budget/budget';
 
 export const BudgetActions = {
-  loadBudgets: createAction('[Budget] Load Budgets'),
+  load: createAction('[Budget] Load'),
 
-  loadBudgetsSuccess: createAction(
-    '[Budget] Load Budgets Success',
+  loadSuccess: createAction(
+    '[Budget] Load Success',
     props<{ budgets: IBudget[] }>()
   )
 };

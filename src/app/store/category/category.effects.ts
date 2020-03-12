@@ -13,11 +13,11 @@ import { CategorySelectors } from './category.selectors';
 export class CategoryEffects {
   constructor(private actions$: Actions, private store: Store<IAppState>) {}
 
-  public loadCategories = createEffect(() =>
+  public load$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(CategoryActions.loadCategories),
+      ofType(CategoryActions.load),
       map(() =>
-        CategoryActions.loadCategoriesSuccess({
+        CategoryActions.loadSuccess({
           categories: [
             {
               id: '1',

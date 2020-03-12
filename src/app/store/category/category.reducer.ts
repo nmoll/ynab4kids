@@ -5,9 +5,10 @@ import { categoryAdapter, initialCategoryState } from './category.entity.state';
 export const categoryReducer = createReducer(
   initialCategoryState,
 
-  on(CategoryActions.loadCategoriesSuccess, (state, { categories }) =>
-    categoryAdapter.addAll(categories, state)
-  ),
+  on(CategoryActions.loadSuccess, (state, { categories }) => ({
+    ...categoryAdapter.addAll(categories, state),
+    loaded: true
+  })),
 
   on(CategoryActions.updateCategoryBudgetSuccess, (state, { category }) =>
     categoryAdapter.updateOne(

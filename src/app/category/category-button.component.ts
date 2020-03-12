@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -11,7 +12,8 @@ import { ICategory } from './category';
 
 @Component({
   selector: 'app-category-button',
-  templateUrl: './category-button.component.html'
+  templateUrl: './category-button.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoryButtonComponent {
   @ViewChild('pigRef', { static: false })

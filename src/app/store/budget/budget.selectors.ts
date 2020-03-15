@@ -22,5 +22,6 @@ const selectLoaded = createSelector(selectBudgetState, state => state.loaded);
 export const BudgetSelectors = {
   selectBudgets: selectAll,
   selectSelectedBudget,
+  selectSelectedBudgetId,
   selectLoaded
 };

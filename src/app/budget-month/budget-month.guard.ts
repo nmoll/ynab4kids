@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
-import { filter, take, tap } from 'rxjs/operators';
+import { filter, mapTo, take, tap } from 'rxjs/operators';
 import { BudgetMonthFacade } from '../store/budget-month/budget-month.facade';
 
 @Injectable()
 export class BudgetMonthGuard implements CanActivate {
   constructor(private budgetMonthFacade: BudgetMonthFacade) {}
 
-  public canActivate(): Observable<boolean> {
-    return this.budgetMonthFacade.loaded$.pipe(
-      tap(isLoaded => {
-        if (!isLoaded) {
-          this.budgetMonthFacade.load();
+  public canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
+    return this.budgetMonthFacade.currentBudgetMonth$.pipe(
+      tap(budgetMonth => {
+        if (!budgetMonth) {
+          this.budgetMonthFacade.load(route.paramMap.get('budgetId'));
         }
       }),
-      filter(isLoaded => isLoaded),
-      take(1)
+      filter(budgetMonth => !!budgetMonth),
+      take(1),
+      mapTo(true)
     );
   }
 }

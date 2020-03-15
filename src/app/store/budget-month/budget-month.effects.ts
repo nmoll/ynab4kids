@@ -1,22 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map } from 'rxjs/operators';
+import { concatMap, map } from 'rxjs/operators';
+import { BudgetService } from 'src/app/budget/budget.service';
 import { BudgetMonthActions } from './budget-month.actions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BudgetMonthEffects {
-  constructor(private actions$: Actions) {}
+  constructor(
+    private actions$: Actions,
+    private budgetService: BudgetService
+  ) {}
 
   public load$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BudgetMonthActions.load),
-      map(() =>
+      concatMap(({ budgetId }) => this.budgetService.getBudgetMonth(budgetId)),
+      map(budgetMonth =>
         BudgetMonthActions.loadSuccess({
-          budgetMonth: {
-            toBeBudgeted: 1.25
-          }
+          budgetMonth
         })
       )
     )

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { BudgetMonthGuard } from '../budget-month/budget-month.guard';
 import { CategoryButtonComponentModule } from '../category/category-button.module';
-import { CategoryGuard } from '../category/category.guard';
 import { MoneyButtonComponentModule } from '../money/money-button.module';
 import { BudgetCategorizePage } from './budget-categorize.page';
 
@@ -19,11 +19,11 @@ import { BudgetCategorizePage } from './budget-categorize.page';
       {
         path: '',
         component: BudgetCategorizePage,
-        canActivate: [CategoryGuard]
+        canActivate: [BudgetMonthGuard]
       }
     ])
   ],
   declarations: [BudgetCategorizePage],
-  providers: [CategoryGuard]
+  providers: [BudgetMonthGuard]
 })
 export class BudgetCategorizePageModule {}

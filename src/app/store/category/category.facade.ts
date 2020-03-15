@@ -10,22 +10,15 @@ import { CategorySelectors } from './category.selectors';
   providedIn: 'root'
 })
 export class CategoryFacade {
-  public categories$: Observable<ICategory[]>;
-  public loaded$: Observable<boolean>;
+  public currentBudgetCategories$: Observable<ICategory[]>;
 
   constructor(private store: Store<ICategoryEntityState>) {
-    this.categories$ = this.store.pipe(
-      select(CategorySelectors.getAllCategories)
+    this.currentBudgetCategories$ = this.store.pipe(
+      select(CategorySelectors.selectCurrentBudgetCategories)
     );
-    this.loaded$ = this.store.pipe(select(CategorySelectors.selectLoaded));
-  }
-
-  public load() {
-    this.store.dispatch(CategoryActions.load());
   }
 
   public updateCategoryBudget(category: ICategory, amount: number) {
-    console.log('update budgetd', category, amount);
     this.store.dispatch(
       CategoryActions.updateCategoryBudget({
         category,

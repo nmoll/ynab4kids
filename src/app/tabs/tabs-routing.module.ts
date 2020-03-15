@@ -21,6 +21,18 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'budgets/:budgetId/categorize',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../budget-categorize/budget-categorize.module').then(
+                m => m.BudgetCategorizePageModule
+              )
+          }
+        ]
+      },
+      {
         path: 'budgets/:budgetId',
         children: [
           {
@@ -28,18 +40,6 @@ const routes: Routes = [
             loadChildren: () =>
               import('../budget-detail/budget-detail.module').then(
                 m => m.BudgetDetailPageModule
-              )
-          }
-        ]
-      },
-      {
-        path: 'budgets/:budetId/categorize',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../budget-categorize/budget-categorize.module').then(
-                m => m.BudgetCategorizePageModule
               )
           }
         ]

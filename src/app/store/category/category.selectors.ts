@@ -9,10 +9,13 @@ const { selectAll, selectEntities } = categoryAdapter.getSelectors(
   selectCategoryState
 );
 
-const selectLoaded = createSelector(selectCategoryState, state => state.loaded);
+const selectCurrentBudgetCategories = createSelector(
+  selectAll,
+  categories => categories
+);
 
 export const CategorySelectors = {
-  getAllCategories: selectAll,
-  getCategoryEntities: selectEntities,
-  selectLoaded
+  selectCategories: selectAll,
+  selectCategoryEntities: selectEntities,
+  selectCurrentBudgetCategories
 };

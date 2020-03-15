@@ -77,7 +77,14 @@ export class BudgetService {
       .pipe(
         map(res => ({
           budgetId,
-          toBeBudgeted: res.data.month.to_be_budgeted / 1000
+          toBeBudgeted: res.data.month.to_be_budgeted / 1000,
+          categories: res.data.month.categories.map(category => ({
+            id: category.id,
+            budgetId,
+            name: category.name,
+            balance: category.balance / 1000,
+            budgeted: category.budgeted / 1000
+          }))
         }))
       );
   }

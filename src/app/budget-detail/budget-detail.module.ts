@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 import { BudgetMonthGuard } from '../budget-month/budget-month.guard';
 import { BudgetGuard } from '../budget/budget.guard';
 import { CategoryButtonComponentModule } from '../category/category-button.module';
-import { CategoryGuard } from '../category/category.guard';
 import { BudgetDetailPage } from './budget-detail.page';
 
 @NgModule({
@@ -19,11 +18,11 @@ import { BudgetDetailPage } from './budget-detail.page';
       {
         path: '',
         component: BudgetDetailPage,
-        canActivate: [BudgetGuard, BudgetMonthGuard, CategoryGuard]
+        canActivate: [BudgetGuard, BudgetMonthGuard]
       }
     ])
   ],
   declarations: [BudgetDetailPage],
-  providers: [BudgetGuard, BudgetMonthGuard, CategoryGuard]
+  providers: [BudgetGuard, BudgetMonthGuard]
 })
 export class BudgetDetailPageModule {}

@@ -11,12 +11,14 @@ export class BudgetMonthGuard implements CanActivate {
   public canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     return this.budgetMonthFacade.currentBudgetMonth$.pipe(
       tap(budgetMonth => {
+        console.log('can activate', budgetMonth);
         if (!budgetMonth) {
           this.budgetMonthFacade.load(route.paramMap.get('budgetId'));
         }
       }),
       filter(budgetMonth => !!budgetMonth),
       take(1),
+      tap(budgetMonth => console.log('loaded budget month', budgetMonth)),
       mapTo(true)
     );
   }

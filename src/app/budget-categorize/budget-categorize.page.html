@@ -17,7 +17,7 @@
 
     <ion-row>
       <ion-col
-        *ngFor="let category of categoryFacade.categories$ | async"
+        *ngFor="let category of categoryFacade.currentBudgetCategories$ | async"
         [size]="6"
       >
         <app-category-button

@@ -15,13 +15,17 @@
     <app-money-button [amount]="0.05"></app-money-button>
     <app-money-button [amount]="0.01"></app-money-button>
 
-    <div style="display: flex; margin-top: 2rem; justify-content: space-evenly">
-      <app-category-button
+    <ion-row>
+      <ion-col
         *ngFor="let category of categoryFacade.categories$ | async"
-        [category]="category"
-        (select)="onSelectCategory(category)"
-      ></app-category-button>
-    </div>
+        [size]="6"
+      >
+        <app-category-button
+          [category]="category"
+          (select)="onSelectCategory(category)"
+        ></app-category-button>
+      </ion-col>
+    </ion-row>
   </ng-container>
 </ion-content>
 

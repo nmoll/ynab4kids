@@ -30,6 +30,12 @@ export class CategoryEffects {
               name: 'Saving',
               balance: 0,
               budgeted: 0
+            },
+            {
+              id: '3',
+              name: 'Fun',
+              balance: 0,
+              budgeted: 0
             }
           ]
         })

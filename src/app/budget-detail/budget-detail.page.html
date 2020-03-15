@@ -1,9 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title
-      style="text-align: center"
-      *ngIf="budgetFacade.selectedBudget$ | async as budget"
-    >
+    <ion-title *ngIf="budgetFacade.selectedBudget$ | async as budget">
       {{ budget.name }}
     </ion-title>
   </ion-toolbar>
@@ -19,12 +16,14 @@
     >{{ budgetMonth.toBeBudgeted | currency }} to budget!</ion-button
   >
 
-  <div style="display: flex; margin-top: 2rem; justify-content: space-evenly">
-    <app-category-button
+  <ion-row>
+    <ion-col
       *ngFor="let category of categoryFacade.categories$ | async"
-      [category]="category"
-    ></app-category-button>
-  </div>
+      [size]="6"
+    >
+      <app-category-button [category]="category"></app-category-button>
+    </ion-col>
+  </ion-row>
 </ion-content>
 
 <ion-fab
